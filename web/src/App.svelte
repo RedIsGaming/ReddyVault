@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import ky from "ky";
+  import Navbar from "./lib/Navbar.svelte";
 
   let response: unknown;
   const localhost: string = "http://localhost:8080/";
@@ -18,6 +19,11 @@
   });
 </script>
 
-<section>
-  <h1 class="text-3xl">{response}</h1>
-</section>
+<Navbar />
+<main>
+  <section class="mt-16 flex justify-center">
+    <article class="w-full py-12 lg:w-2/3 mx-3 lg:mx-0">
+      <h1 class="text-4xl text-black dark:text-white">{response}</h1>
+    </article>
+  </section>
+</main>

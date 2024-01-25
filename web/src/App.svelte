@@ -8,7 +8,7 @@
   onMount(async (): Promise<void> => {
     try {
       response = await ky.get(localhost)
-        .then((resolve: Response) => resolve.text())
+        .then((resolve: Response) => localhost.endsWith("8080/") ? resolve.text() : "Something broke on Reddy's Vault!")
         .catch((reject: Error) => reject.message);
     } 
     
@@ -19,5 +19,5 @@
 </script>
 
 <section>
-  <h1>{response}</h1>
+  <h1 class="text-3xl">{response}</h1>
 </section>

@@ -3,6 +3,7 @@
   import ky from "ky";
   import { localhost } from "../components/routing";
   import Intro from "../components/Intro.svelte";
+  import Quality from "../components/Quality.svelte";
 
   let responder: string = "";
 
@@ -20,3 +21,4 @@
 </script>
 
 <Intro responder={responder} />
+<Quality />

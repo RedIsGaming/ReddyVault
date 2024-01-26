@@ -3,12 +3,13 @@
   import { Link, Router } from "svelte-navigator";
   import { Icon, Bars3 } from "svelte-hero-icons";
   import { routing } from "./routing";
+  import type { ReddyVault } from "../../types";
 
-  export const reddyVault: string = "ReddyVault";
+  export const reddyVault: ReddyVault = "ReddyVault";
 </script>
 
 <header class="fixed top-0 inset-x-0">
-  <nav class="h-16 flex justify-center">
+  <nav class="h-16 flex justify-center bg-white dark:bg-black">
     <ul class="flex items-center w-full lg:w-2/3 mx-3 lg:mx-0">
       <Router>
         <li class="w-full flex justify-start items-center">

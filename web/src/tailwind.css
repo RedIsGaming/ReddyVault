@@ -23,4 +23,10 @@
   .button-uncta {
     @apply sm:bg-gray-800 m-auto mt-3 sm:ml-6 sm:hover:bg-gray-700 bg-white hover:bg-white text-black sm:text-white;
   }
+
+  .reddy-h2 {
+    @apply text-4xl md:text-5xl text-black dark:text-white;
+  }
 }
+
+h1, h2, h3 { font-family: "Kanit"; }

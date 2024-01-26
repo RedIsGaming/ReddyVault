@@ -15,7 +15,7 @@ async fn login() -> impl Responder {
 
 #[get("/")]
 async fn app() -> impl Responder {
-    HttpResponse::Ok().body("Reddy's Vault is succesfully connected!")
+    HttpResponse::Ok().body("Welcome to ReddyVault...")
 }
 
 #[actix_web::main]

@@ -7,7 +7,7 @@
   export const reddyVault: string = "ReddyVault";
 </script>
 
-<header class="fixed inset-0">
+<header class="fixed top-0 inset-x-0">
   <nav class="h-16 flex justify-center">
     <ul class="flex items-center w-full lg:w-2/3 mx-3 lg:mx-0">
       <Router>
@@ -22,13 +22,13 @@
         <li class="w-full hidden justify-end items-center text-lg sm:flex">
           {#each routing.slice(1) as item, index}
             {#if index == routing.length - 2}
-              <Link to={item.url} class="ml-20 text-white">
-                <button class="bg-red-600 py-2 px-4 rounded-xl hover:bg-red-500 duration-300 ease-in-out">
+              <Link to={item.url} class="ml-20">
+                <button class="button py-2 px-4 text-lg">
                   {item.name}
                 </button>
               </Link>
               {:else}
-              <Link to={item.url} class="ml-20 text-black dark:text-white">
+              <Link to={item.url} class="ml-20 text-black dark:text-white font-semibold">
                 {item.name}
               </Link>
             {/if}

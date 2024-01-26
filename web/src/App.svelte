@@ -15,4 +15,4 @@
     {/each}
   </Router>
 </main>
-<Footer />
+<!--<Footer />-->

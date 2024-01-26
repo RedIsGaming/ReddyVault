@@ -21,4 +21,19 @@ export const routing: Routing[] = [
   },
 ];
 
+export const routes: Routing[] = [
+  {
+    url: "/",
+    name: "Check more"
+  },
+  {
+    url: "https://github.com/RedIsGaming/ReddyVault",
+    name: "Github"
+  },
+  {
+    url: "/login",
+    name: "Login"
+  },
+];
+
 export const localhost: string = "http://localhost:8080/";

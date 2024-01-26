@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import ky from "ky";
   import { localhost } from "../components/routing";
+  import Intro from "../components/Intro.svelte";
 
   let responder: string = "";
 
@@ -18,8 +19,4 @@
   });
 </script>
 
-<section class="reddy-section">
-  <article class="reddy-article">
-    <h1 class="reddy-h1">{responder}</h1>
-  </article>
-</section>
+<Intro responder={responder} />

@@ -1,5 +1,9 @@
 export type Routing = {
   url: string,
   name: string,
-  component: Function,
+  component?: Function,
 };
+
+export type Slogan = {
+  description: string,
+}

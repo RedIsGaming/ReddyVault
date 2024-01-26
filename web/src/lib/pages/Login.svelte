@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import ky from "ky";
-  import { response, localhost } from "../route";
+  import { localhost } from "../components/routing";
 
-  let responder: unknown = response;
+  let responder: string = "";
 
   onMount(async (): Promise<void> => {
     try {

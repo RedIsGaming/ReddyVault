@@ -1,5 +1,5 @@
 export type Routing = {
   url: string,
-  name?: string,
-  component?: Function,
+  name: string,
+  component: Function,
 };

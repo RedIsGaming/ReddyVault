@@ -1,19 +1,10 @@
 <script lang="ts">
   import vite from "/vite.svg";
   import { Link, Router } from "svelte-navigator";
-  import type { Routing } from "../../types";
   import { Icon, Bars3 } from "svelte-hero-icons";
+  import { routing } from "./routing";
 
-  const routing: Routing[] = [
-    {
-      url: "/about",
-      name: "About"
-    },
-    {
-      url: "/login",
-      name: "Login"
-    }
-  ];
+  export const reddyVault: string = "ReddyVault";
 </script>
 
 <header class="fixed inset-0">
@@ -24,13 +15,13 @@
           <Link to="/">
             <figure class="flex">
               <img src={vite} alt="Vite" />
-              <figcaption class="text-black dark:text-white text-lg ml-2">ReddyVault</figcaption>
+              <figcaption class="text-black dark:text-white text-2xl ml-2 font-semibold">{reddyVault}</figcaption>
             </figure>
           </Link>
         </li>
         <li class="w-full hidden justify-end items-center text-lg sm:flex">
-          {#each routing as item, index}
-            {#if index == routing.length - 1}
+          {#each routing.slice(1) as item, index}
+            {#if index == routing.length - 2}
               <Link to={item.url} class="ml-20 text-white">
                 <button class="bg-red-600 py-2 px-4 rounded-xl hover:bg-red-500 duration-300 ease-in-out">{item.name}</button>
               </Link>

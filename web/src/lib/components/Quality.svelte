@@ -32,8 +32,8 @@
     
     <article class="my-5 md:my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {#each qualities.slice(1) as quality}
-        <div class="border-red-100 dark:border-red-900 border-2 p-5 rounded-3xl text-center">
-          <figure class="text-red-600 flex justify-center">
+        <div class="border-gray-200 dark:border-gray-800 border-2 p-5 rounded-3xl text-center">
+          <figure class="text-red-500 flex justify-center">
             <Icon src={quality.icon} size={"64"} />
           </figure>
           <h3 class="text-3xl md:text-4xl text-black dark:text-white my-5">{quality.name}</h3>

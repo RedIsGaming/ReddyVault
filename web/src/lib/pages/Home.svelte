@@ -18,8 +18,8 @@
   });
 </script>
 
-<section class="mt-16 flex justify-center">
-  <article class="w-full py-12 lg:w-2/3 mx-3 lg:mx-0">
-    <h1 class="text-4xl text-black dark:text-white">{responder}</h1>
+<section class="reddy-section">
+  <article class="reddy-article">
+    <h1 class="reddy-h1">{responder}</h1>
   </article>
 </section>

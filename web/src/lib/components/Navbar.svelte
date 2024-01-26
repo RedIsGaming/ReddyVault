@@ -23,7 +23,9 @@
           {#each routing.slice(1) as item, index}
             {#if index == routing.length - 2}
               <Link to={item.url} class="ml-20 text-white">
-                <button class="bg-red-600 py-2 px-4 rounded-xl hover:bg-red-500 duration-300 ease-in-out">{item.name}</button>
+                <button class="bg-red-600 py-2 px-4 rounded-xl hover:bg-red-500 duration-300 ease-in-out">
+                  {item.name}
+                </button>
               </Link>
               {:else}
               <Link to={item.url} class="ml-20 text-black dark:text-white">

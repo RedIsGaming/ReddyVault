@@ -1,4 +1,5 @@
-export type ListItem = {
-  url: string;
-  name: string;
+export type Routing = {
+  url: string,
+  name?: string,
+  component?: Function,
 };

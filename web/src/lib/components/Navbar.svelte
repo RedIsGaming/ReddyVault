@@ -1,23 +1,16 @@
 <script lang="ts">
   import vite from "/vite.svg";
   import { Link, Router } from "svelte-navigator";
-  import type { ListItem } from "../types";
+  import type { Routing } from "../../types";
+  import { Icon, Bars3 } from "svelte-hero-icons";
 
-  const listItem: ListItem[] = [
+  const routing: Routing[] = [
     {
-      url: "/",
-      name: "url1"
+      url: "/about",
+      name: "About"
     },
     {
-      url: "/",
-      name: "url2"
-    },
-    {
-      url: "/",
-      name: "url3"
-    },
-    {
-      url: "/",
+      url: "/login",
       name: "Login"
     }
   ];
@@ -36,10 +29,10 @@
           </Link>
         </li>
         <li class="w-full hidden justify-end items-center text-lg sm:flex">
-          {#each listItem as item, index}
-            {#if index == listItem.length - 1}
+          {#each routing as item, index}
+            {#if index == routing.length - 1}
               <Link to={item.url} class="ml-20 text-white">
-                <button class="bg-red-500 py-2 px-4 rounded-xl hover:bg-red-600 duration-300 ease-in-out">{item.name}</button>
+                <button class="bg-red-600 py-2 px-4 rounded-xl hover:bg-red-500 duration-300 ease-in-out">{item.name}</button>
               </Link>
               {:else}
               <Link to={item.url} class="ml-20 text-black dark:text-white">
@@ -47,6 +40,9 @@
               </Link>
             {/if}
           {/each}
+        </li>
+        <li class="w-full flex justify-end items-center sm:hidden text-black dark:text-white">
+          <Icon src={Bars3} size={"48"} />
         </li>
       </Router>
     </ul>

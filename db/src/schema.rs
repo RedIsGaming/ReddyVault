@@ -1,9 +1,10 @@
 diesel::table! {
     users (id) {
-        id -> Integer,
-        name -> Text,
+        id -> Oid,
+        username -> Text,
         email -> Text,
-        password -> Timestamp,
-        created -> Timestamp,
+        password -> Text,
+        created -> Date,
+        role -> Text,
     }
 }

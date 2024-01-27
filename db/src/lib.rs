@@ -1,14 +1,17 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+use core::panic;
+use std::env;
+use diesel::{pg::PgConnection, Connection};
+use dotenvy::dotenv;
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+pub mod models;
+pub mod schema;
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+pub fn connection() -> PgConnection {
+    dotenv().ok();
+
+    let database_url = env::var("DATABASE_URL")
+        .expect("DATABASE_URL must be set");
+
+    PgConnection::establish(&database_url)
+        .unwrap_or_else(|_| panic!("Error connecting to {}", database_url))
 }

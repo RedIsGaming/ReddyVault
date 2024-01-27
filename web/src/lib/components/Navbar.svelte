@@ -8,7 +8,7 @@
   export const reddyVault: ReddyVault = "ReddyVault";
 </script>
 
-<header class="fixed top-0 inset-x-0">
+<header class="block lg:fixed top-0 inset-x-0">
   <nav class="h-16 flex justify-center bg-white dark:bg-black">
     <ul class="flex items-center w-full lg:w-2/3 mx-3 lg:mx-0">
       <Router>

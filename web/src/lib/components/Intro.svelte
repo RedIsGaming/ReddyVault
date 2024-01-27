@@ -2,13 +2,21 @@
   import type { Slogan } from "../../types";
   import { Link, Router } from "svelte-navigator";
   import { routes } from "../components/routing";
-  import { scrollToNext } from "./scrollToNext";
-
+  
   export let responder: string = "";
 
   const slogan: Slogan = {
     description: "Reddyvault is an Open Source Password Manager written in Rust and Svelte.",
   };
+
+  function scrollToNext(event: MouseEvent): void {
+    event.preventDefault();
+    const scroll: HTMLElement | null = document.getElementById("quality");
+
+    scroll?.scrollIntoView({ 
+      behavior: "smooth"
+    });
+  }
 </script>
 
 <section class="reddy-section bg-red-100 dark:bg-red-900">

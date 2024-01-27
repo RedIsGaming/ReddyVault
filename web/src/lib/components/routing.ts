@@ -23,7 +23,7 @@ export const routing: Routing[] = [
 
 export const routes: Routing[] = [
   {
-    url: "#quality",
+    url: "/",
     name: "Check more"
   },
   {

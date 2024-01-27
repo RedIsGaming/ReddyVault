@@ -4,7 +4,7 @@
 
 @layer components {
   .reddy-section {
-    @apply mt-16 flex justify-center;
+    @apply mt-0 lg:mt-16 flex justify-center;
   }
 
   .reddy-article {
@@ -34,4 +34,3 @@
 }
 
 h1, h2, h3 { font-family: "Kanit"; }
-body { scroll-behavior: smooth; }

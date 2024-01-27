@@ -4,6 +4,7 @@ export type Routing = {
   url: string,
   name: string,
   component?: Function,
+  target? : string,
 };
 
 export type Slogan = {

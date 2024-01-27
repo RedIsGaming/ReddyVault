@@ -29,7 +29,7 @@
   }
 
   .custom-section {
-    @apply bg-gray-200 dark:bg-gray-900 h-[84.7vh];
+    @apply bg-gray-100 dark:bg-gray-900 h-[84.7vh];
   }
 }
 

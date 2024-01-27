@@ -21,16 +21,16 @@
           </Link>
         </li>
         <li class="w-full hidden justify-end items-center text-lg sm:flex">
-          {#each routing.slice(1) as item, index}
-            {#if index == routing.length - 2}
+          {#each routing as item, index}
+            {#if index == routing.length - 1}
               <Link to={item.url} class="ml-20">
                 <button class="button py-2 px-4 text-lg">
                   {item.name}
                 </button>
               </Link>
               {:else}
-              <Link to={item.url} class="ml-20 text-black dark:text-white font-semibold">
-                {item.name}
+              <Link to={item.url} class="ml-20 text-black dark:text-white font-semibold hover:text-red-500 duration-300 
+                ease-in-out">{item.name}
               </Link>
             {/if}
           {/each}

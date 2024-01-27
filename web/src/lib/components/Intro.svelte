@@ -2,7 +2,7 @@
   import type { Slogan } from "../../types";
   import { Link, Router } from "svelte-navigator";
   import { routes } from "../components/routing";
-  
+
   export let responder: string = "";
 
   const slogan: Slogan = {
@@ -32,11 +32,11 @@
               <button class="button" on:click={scrollToNext}>{route.name}</button>
             </Link>
             {:else}
-            <Link to={route.url} target={"_blank"}>
+            <a href={route.url} target={route.target}>
               <button class="button button-uncta">
                 {route.name}
               </button>
-            </Link>
+            </a>
           {/if}
         {/each}
       </Router>

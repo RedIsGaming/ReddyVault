@@ -24,15 +24,18 @@ export const routing: Routing[] = [
 export const routes: Routing[] = [
   {
     url: "/",
-    name: "Check more"
+    name: "Check more",
+    target: "_self"
   },
   {
     url: "https://github.com/RedIsGaming/ReddyVault",
-    name: "Github"
+    name: "Github",
+    target: "_blank"
   },
   {
     url: "/login",
-    name: "Login"
+    name: "Login",
+    target: "_self"
   },
 ];
 

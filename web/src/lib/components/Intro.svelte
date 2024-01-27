@@ -2,6 +2,7 @@
   import type { Slogan } from "../../types";
   import { Link, Router } from "svelte-navigator";
   import { routes } from "../components/routing";
+  import { scrollToNext } from "./scrollToNext";
 
   export let responder: string = "";
 
@@ -20,7 +21,7 @@
         {#each routes as route, index}
           {#if index == 0}
             <Link to={route.url}>
-              <button class="button">{route.name}</button>
+              <button class="button" on:click={scrollToNext}>{route.name}</button>
             </Link>
             {:else}
             <Link to={route.url} target={"_blank"}>

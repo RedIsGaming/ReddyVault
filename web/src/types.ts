@@ -17,3 +17,9 @@ export type Quality = {
 }
 
 export type ReddyVault = "ReddyVault";
+
+export type NotFound = {
+  name: string,
+  description: string,
+  return: string,
+}

@@ -18,7 +18,7 @@
   });
 </script>
 
-<section class="reddy-section">
+<section class="reddy-section custom-section">
   <article class="reddy-article">
     <h1 class="reddy-h1">{responder}</h1>
   </article>

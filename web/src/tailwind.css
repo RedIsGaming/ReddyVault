@@ -27,6 +27,11 @@
   .reddy-h2 {
     @apply text-4xl md:text-5xl text-black dark:text-white;
   }
+
+  .custom-section {
+    @apply bg-gray-200 dark:bg-gray-900 h-[84.7vh];
+  }
 }
 
 h1, h2, h3 { font-family: "Kanit"; }
+body { scroll-behavior: smooth; }

@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Quality } from "../../types";
   import { Icon, CheckCircle, Square3Stack3d, ServerStack } from "svelte-hero-icons";
+  import { store } from "./scrollToNext";
   
   const qualities: Quality[] = [
     {
@@ -28,7 +29,9 @@
 
 <section class="reddy-section m-auto">
   <article class="reddy-article">
-    <h2 class="reddy-h2 text-black dark:text-white">{qualities.map(quality => quality.name).shift()}</h2>
+    <h2 class="reddy-h2 text-black dark:text-white" id="quality" bind:this={$store}>
+      {qualities.map(quality => quality.name).shift()}
+    </h2>
     
     <article class="my-5 md:my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {#each qualities.slice(1) as quality}

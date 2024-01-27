@@ -5,12 +5,12 @@ use actix_web::{get, App, HttpResponse, HttpServer, Responder};
 
 #[get("/about")]
 async fn about() -> impl Responder {
-    HttpResponse::Ok().body("We are the Reddy's Vault.")
+    HttpResponse::Ok().body("Who ReddyVault actually are")
 }
 
 #[get("/login")]
 async fn login() -> impl Responder {
-    HttpResponse::Ok().body("Log in on Reddy's Vault.")
+    HttpResponse::Ok().body("Log in on ReddyVault")
 }
 
 #[get("/")]

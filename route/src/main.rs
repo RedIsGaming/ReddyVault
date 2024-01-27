@@ -2,6 +2,7 @@ use std::net::Ipv4Addr;
 use std::io::Result;
 use actix_cors::Cors;
 use actix_web::{get, App, HttpResponse, HttpServer, Responder};
+use db;
 
 #[get("/about")]
 async fn about() -> impl Responder {
@@ -23,6 +24,8 @@ async fn main() -> Result<()> {
     let localhost = Ipv4Addr::LOCALHOST;
 
     HttpServer::new(|| {
+        db::connection();
+        
         App::new()
             .service(app)
             .service(login)

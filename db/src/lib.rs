@@ -1,12 +1,12 @@
 use core::panic;
 use std::env;
-use diesel::{pg::PgConnection, Connection, ExpressionMethods, QueryDsl, RunQueryDsl};
+use diesel::{pg::PgConnection, Connection, ExpressionMethods, QueryDsl, RunQueryDsl, SelectableHelper};
 use dotenvy::dotenv;
 use models::User;
-use crate::models::SelectUser;
 
 pub mod models;
 pub mod schema;
+pub mod role;
 
 pub fn connection() -> PgConnection {
     dotenv().ok();
@@ -25,7 +25,7 @@ pub fn read() -> Vec<User> {
     let user = users
         .filter(created.is_not_null())
         .limit(5)
-        .select(User::as_select((id, username, email, password, created, role)))
+        .select(User::as_select())
         .get_results::<User>(&mut conn)
         .expect("Error while trying to load users.");
 

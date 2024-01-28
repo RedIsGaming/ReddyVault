@@ -1,7 +1,7 @@
-use diesel::{backend::Backend, helper_types::AsSelect, Queryable, Selectable};
-use chrono::{DateTime, Utc};
+use diesel::{backend::Backend, expression::SelectableHelper, helper_types::AsSelect, Queryable, Selectable};
+use chrono::NaiveDateTime;
 use serde::Serialize;
-use diesel::prelude::SelectableHelper;
+use crate::{role::Role, schema::users};
 
 #[derive(Debug, Queryable, Selectable, Serialize)]
 #[diesel(table_name = crate::schema::users)]
@@ -11,13 +11,8 @@ pub struct User {
     pub username: String,
     pub email: String,
     pub password: String,
-    #[diesel(embed)]
-    pub created: DateTime<Utc>,
-    pub role: String,
-}
-
-pub trait SelectUser<DB: Backend> : Selectable<DB> + Sized {
-    fn as_select(&self) -> AsSelect<Self, DB>;
+    pub created: NaiveDateTime,
+    pub role: Role,
 }
 
 impl<T, DB> SelectableHelper<DB> for T
@@ -25,18 +20,7 @@ where
     T: Selectable<DB>,
     DB: Backend,
 {
-    fn as_select() -> AsSelect<Self, DB> {
-        Self::as_select()
-    }
-}
-
-impl SelectUser<diesel::pg::Pg> for User {
-    fn as_select(&self) -> AsSelect<Self, diesel::pg::Pg> {
-        self.id.as_select()
-            .and(self.username.as_select())
-            .and(self.email.as_select())
-            .and(self.password.as_select())
-            .and(self.created.as_select())
-            .and(self.role.as_select())
+    fn as_select(&self) -> AsSelect<Self, DB> {
+        users::all_columns()
     }
 }

@@ -1,9 +1,9 @@
-use diesel::{backend::Backend, expression::SelectableHelper, helper_types::AsSelect, Queryable, Selectable};
+use diesel::{prelude::Insertable, Queryable, Selectable};
 use chrono::NaiveDateTime;
-use serde::Serialize;
-use crate::{role::Role, schema::users};
+use serde::{Deserialize, Serialize};
+use crate::{role::Role, schema::users::columns};
 
-#[derive(Debug, Queryable, Selectable, Serialize)]
+#[derive(Debug, Queryable, Selectable, Serialize, Deserialize)]
 #[diesel(table_name = crate::schema::users)]
 #[diesel(check_for_backend(diesel::pg::Pg))]
 pub struct User {
@@ -15,12 +15,12 @@ pub struct User {
     pub role: Role,
 }
 
-impl<T, DB> SelectableHelper<DB> for T
-where
-    T: Selectable<DB>,
-    DB: Backend,
-{
-    fn as_select(&self) -> AsSelect<Self, DB> {
-        users::all_columns()
-    }
+#[derive(Debug, Queryable, Insertable, Clone, Copy)]
+#[diesel(table_name = crate::schema::users)]
+#[diesel(check_for_backend(diesel::pg::Pg))]
+pub struct NewUser<'a> {
+    pub username: &'a columns::username,
+    pub email: &'a columns::email,
+    pub password: &'a columns::password,
+    pub role: &'a columns::role,
 }

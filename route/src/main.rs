@@ -2,7 +2,7 @@ use std::net::Ipv4Addr;
 use std::io::Result;
 use actix_cors::Cors;
 use actix_web::{get, App, HttpResponse, HttpServer, Responder};
-use db;
+use db::{self, role::Role, schema::sql_types::Roles};
 
 #[get("/about")]
 async fn about() -> impl Responder {
@@ -22,9 +22,11 @@ async fn app() -> impl Responder {
 #[actix_web::main]
 async fn main() -> Result<()> {
     let localhost = Ipv4Addr::LOCALHOST;
+    let role = Role::User(Role::Default);
 
     HttpServer::new(|| {
-        db::connection();
+        db::create("test", "test@test.com", "test", &role);
+        db::read();
         
         App::new()
             .service(app)
